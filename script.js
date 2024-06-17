@@ -1,28 +1,33 @@
 window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 
-  const recognition = new SpeechRecognition();
-  recognition.interimResults = true;
-  recognition.lang = 'en-US';
+const recognition = new SpeechRecognition();
+recognition.interimResults = true;
+recognition.lang = 'en-US';
 
-  let p = document.createElement('p');
-  const words = document.querySelector('.words');
-  words.appendChild(p);
+let p = document.createElement('p');
+const words = document.querySelector('.words');
+words.appendChild(p);
 
-  recognition.addEventListener('result', e => {
-    const transcript = Array.from(e.results)
-      .map(result => result[0])
-      .map(result => result.transcript)
-      .join('');
+recognition.addEventListener('result', e => {
+  console.log('Speech recognition result received:', e);
+  const transcript = Array.from(e.results)
+    .map(result => result[0])
+    .map(result => result.transcript)
+    .join('');
 
-      const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
-      p.textContent = poopScript;
+  const poopScript = transcript.replace(/poop|poo|shit|dump/gi, '💩');
+  p.textContent = poopScript;
 
-      if (e.results[0].isFinal) {
-        p = document.createElement('p');
-        words.appendChild(p);
-      }
-  });
+  if (e.results[0].isFinal) {
+    p = document.createElement('p');
+    words.appendChild(p);
+  }
+});
 
-  recognition.addEventListener('end', recognition.start);
-
+recognition.addEventListener('end', () => {
+  console.log('Speech recognition ended, restarting...');
   recognition.start();
+});
+
+recognition.start();
+console.log('Speech recognition started.');
