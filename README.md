@@ -1,5 +1,5 @@
 # Speech-Recognition
-### A simple speech recognition tool built with vanilla JS.
+A simple speech recognition tool built with vanilla JS.
 
 ### Uses
 - Voice-to-text in real-time
