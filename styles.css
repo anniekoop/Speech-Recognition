@@ -20,10 +20,12 @@ html {
     background-size: 100% 3rem;
     position: relative;
     line-height: 3rem;
+    font-weight: 500;
   }
 
   p {
     margin: 0 0 3rem;
+    font-weight: 500;
   }
 
   .words:before {
