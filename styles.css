@@ -5,7 +5,7 @@ html {
   body {
     background: #1677ff;
     font-family: 'Sora';
-    font-weight: 500;
+    font-weight: 400;
     font-size: 20px;
   }
 
@@ -20,12 +20,12 @@ html {
     background-size: 100% 3rem;
     position: relative;
     line-height: 3rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   p {
     margin: 0 0 3rem;
-    font-weight: 500;
+    font-weight: 400;
   }
 
   .words:before {
